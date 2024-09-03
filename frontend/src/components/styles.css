@@ -1,0 +1,23 @@
+/**
+ * styles.css
+ * 
+ * This CSS file contains the styles for the chat messages container.
+ * 
+ * The .messages class is used for the container that holds the chat messages.
+ * It is displayed as a flex container with a column direction, allowing the messages to stack vertically.
+ * The overflow-y property is set to scroll, enabling a vertical scrollbar when the content overflows the container.
+ * The scrollbar-width property is set to none, hiding the scrollbar.
+ * Created on: 11-May-24
+ *
+ * @author Eren Ozen
+ * @version 1.0
+ * @studentId 21803591
+ * @team Code Benders  
+ */
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}

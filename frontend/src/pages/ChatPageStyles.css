@@ -1,0 +1,19 @@
+/* ChatPageStyles.css */
+.chat-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 91.5vh;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.chat-box {
+  flex: 1; /* Smaller flex value to make ChatBox smaller */
+}
+
+.calendar-container {
+  flex: 2; /* Larger flex value to make the calendar larger */
+  height: 100%;
+  overflow: auto;
+}
