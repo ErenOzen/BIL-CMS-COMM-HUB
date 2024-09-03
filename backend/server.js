@@ -41,30 +41,34 @@ app.use(express.json());
 
 // Define a route handler for the home page
 // When a GET request is made to the home page, the API status is returned
-app.get("/", (req, res) => {
+//app.get("/", (req, res) => {
   // Send a response indicating that the API is running
-  res.send("API is running...");
-});
+  //res.send("API is running...");
+//});
 
 // Define routes for user and chat
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-// Deployment
+// --------------------------deployment------------------------------
+
 const __dirname1 = path.resolve();
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname1,"/frontend/build")));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname1,"frontend","build","index.html"));
-  });
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
 
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+  );
 } else {
   app.get("/", (req, res) => {
-    res.send("API is running...");
+    res.send("API is running..");
   });
 }
+
+// --------------------------deployment------------------------------
+
 
 // Define error handling middleware
 app.use(notFound);
@@ -84,7 +88,7 @@ const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
     origin: "http://localhost:3000",
-    // credentials: true,
+    credentials: true,
   },
 });
 
